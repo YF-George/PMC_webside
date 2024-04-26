@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+	margin: 0; /* 設置網頁邊距為 0 */
+	font-family: 'Noto Sans TC', sans-serif; /* 設置字體為 Noto Sans TC，如果不支持則使用 sans-serif */
+  }
+  
+  a {
+	text-decoration: none; /* 移除連結的下劃線 */
+  }
+  header {
+	width:100%;
+	display: flex;
+	position: fixed;
+  }
+  /* 第一部分樣式 */
+  #section-1 {
+	background-repeat: no-repeat; /* 背景不重複 */
+	background-attachment: fixed; /* 背景固定 */
+	background-size: cover; /* 背景填滿整個區域 */
+	height: 100vh; /* 高度為視窗高度的百分之百 */
+  }
+  
+  .logo {
+	font-weight: bold; /* 字體加粗 */
+	font-size: 1.5em; /* 字體大小為 1.2em */
+  }
+  
+  #title {
+	font-size: 3.5rem; /* 標題字體大小為 3.5rem */
+  }
+  
+  .float-element {
+	animation: floatUpDown 2s ease-in-out infinite; /* 浮動動畫，每 2 秒循環一次 */
+  }
+  
+  @keyframes floatUpDown {
+	0%, 100% {
+		transform: translateY(0); /* 初始和結束時垂直位置不變 */
+	}
+	50% {
+		transform: translateY(-20px); /* 中間位置上移 20px */
+	}
+  }
+  
+  /* 第二部分樣式 */
+  #section-2 {
+	background-repeat: no-repeat; /* 背景不重複 */
+	background-attachment: fixed; /* 背景固定 */
+	background-size: cover; /* 背景填滿整個區域 */
+	height: auto; /* 自動高度 */
+	padding: 100px; /* 內邊距為 100px */
+	min-height: 80vh; /* 最小高度為視窗高度的百分之百 */
+  }
+  
+  /* 第三部分樣式 */
+  #section-3 {
+	background-repeat: no-repeat; /* 背景不重複 */
+	background-attachment: fixed; /* 背景固定 */
+	background-size: cover; /* 背景填滿整個區域 */
+	height: auto; /* 自動高度 */
+	padding: 100px; /* 內邊距為 100px */
+	min-height: 50vh; /* 最小高度為視窗高度的百分之百 */
+  }
+  
+  /* 第三部分樣式 */
+  #section-4 {
+	background-repeat: no-repeat; /* 背景不重複 */
+	background-attachment: fixed; /* 背景固定 */
+	background-size: cover; /* 背景填滿整個區域 */
+	height: auto; /* 自動高度 */
+	padding: 100px; /* 內邊距為 100px */
+	min-height: 50vh; /* 最小高度為視窗高度的百分之百 */
+  }
+  
+  /* 其他調整 */
+  .margin-r-auto {
+	margin-right: auto; /* 右邊距自動 */
+  }
+  
+  .text-white {
+	color: white; /* 文字顏色為白色 */
+  }
+  
+  .py-10 {
+	padding-top: 100px; /* 上內邊距為 100px */
+	padding-bottom: 100px; /* 下內邊距為 100px */
+  }
+  
+  .fs-5 {
+	font-size: 1.5rem !important;
+  }
+  
+  .py-3 {
+	padding-top: 1.5rem; /* 上內邊距為 1.5rem */
+	padding-bottom: 1.5rem; /* 下內邊距為 1.5rem */
+  }
+  
+  .py-2 {
+	padding-top: 1rem; /* 上內邊距為 1rem */
+	padding-bottom: 1rem; /* 下內邊距為 1rem */
+  }
+  /* 頁尾樣式 */
+  footer {
+	font-size: 0.9rem; /* 字體大小為 0.9rem */
+  }
+  
+  /* 頁尾容器樣式 */
+  footer .container {
+	max-width: 1200px; /* 最大寬度為 1200px */
+	margin: 0 auto; /* 水平置中 */
+  }
+  
+  /* 頁尾 LOGO 樣式 */
+  footer img {
+	margin-right: 5px; /* 調整 LOGO 與文字之間的間距 */
+	margin-bottom: -8px; /* 讓 LOGO 與文字垂直居中 */
+  }
+  
+  .p-5 {
+	padding: 2rem 4rem !important;
+  }
