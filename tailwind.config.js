@@ -2,8 +2,7 @@
 export default {
     content: ['./src/**/*.{html,js,svelte,ts}'],
     theme: {
-        extend: {},
+        extend: {},  // 可以在這裡擴展主題設定
     },
-    plugins: [],
-}
-
+    plugins: [],  // 可以在這裡添加 Tailwind CSS 插件
+};

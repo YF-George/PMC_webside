@@ -1,12 +1,12 @@
-.DS_Store
-node_modules
-/build
-/.svelte-kit
-/package
-.env
-.env.*
-!.env.example
-.vercel
-.output
-vite.config.js.timestamp-*
-vite.config.ts.timestamp-*
+.DS_Store            // 隱藏檔案macOS 系統自動生成的
+node_modules         // Node.js 模組目錄
+/build               // 編譯和生成專案構建的目錄
+/.svelte-kit         // SvelteKit 專案的配置或緩存目錄
+/package             // 專案的 package 目錄
+.env                 // 環境變數配置文件
+.env.*               // 環境變數配置文件
+!.env.example        // 示例環境變數配置文件
+.vercel              // Vercel 平台部署配置目錄
+.output              // 編譯輸出文件目錄
+vite.config.js.timestamp-*   // Vite.js 配置文件的暫存或版本控制文件
+vite.config.ts.timestamp-*   // Vite.js 配置文件的暫存或版本控制文件

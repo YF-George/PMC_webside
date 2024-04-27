@@ -1,19 +1,21 @@
 {
-	"extends": "./.svelte-kit/tsconfig.json",
+	"extends": "./.svelte-kit/tsconfig.json",  // 引用了 SvelteKit 專案的基本 TypeScript 配置
+
 	"compilerOptions": {
-		"allowJs": true,
-		"checkJs": true,
-		"esModuleInterop": true,
-		"forceConsistentCasingInFileNames": true,
-		"resolveJsonModule": true,
-		"skipLibCheck": true,
-		"sourceMap": true,
-		"strict": true,
-		"moduleResolution": "bundler"
+		"allowJs": true,  // 允許編譯 JavaScript 文件
+		"checkJs": true,  // 在 JavaScript 文件中進行類型檢查
+		"esModuleInterop": true,  // 支持 ES 模塊的互操作性
+		"forceConsistentCasingInFileNames": true,  // 強制文件名大小寫一致
+		"resolveJsonModule": true,  // 支持導入 JSON 模塊
+		"skipLibCheck": true,  // 跳過對引用庫的檢查，加快編譯速度
+		"sourceMap": true,  // 生成 source map 文件，用於調試
+		"strict": true,  // 啟用嚴格的類型檢查
+		"moduleResolution": "bundler"  // 使用打包器解析模塊
 	}
-	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
-	// except $lib which is handled by https://kit.svelte.dev/docs/configuration#files
-	//
-	// If you want to overwrite includes/excludes, make sure to copy over the relevant includes/excludes
-	// from the referenced tsconfig.json - TypeScript does not merge them in
+
+	// 路徑別名由 https://kit.svelte.dev/docs/configuration#alias 處理
+	// 除了 $lib 由 https://kit.svelte.dev/docs/configuration#files 處理外
+
+	// 如果您想覆蓋 includes/excludes，請確保從引用的 tsconfig.json 中複製相應的 includes/excludes
+	// TypeScript 不會合併它們
 }
