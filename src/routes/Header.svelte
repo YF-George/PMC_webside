@@ -11,10 +11,10 @@
 
 	<nav>
 		<ul class="flex list-none">
-			<li class="nav-item"><a href="index.html"><span class="text-lg text-white hover:text-yellow-500 box"><strong>首頁</strong></span></a></li>
-			<li class="nav-item"><a href="commands.html"><span class="text-lg hover:text-yellow-500 text-white box"><strong>指令</strong></span></a></li>
-			<li class="nav-item"><a href="about.html"><span class="text-lg hover:text-yellow-500 text-white box"><strong>關於</strong></span></a></li>
-			<li class="nav-item"><a href="login.html"><span class="text-lg hover:text-yellow-500 text-white box"><strong>登入</strong></span></a></li>
+			<li class="nav-item"><a href="/"><span class="text-lg text-white hover:text-yellow-500 box"><strong>首頁</strong></span></a></li>
+			<li class="nav-item"><a href="commands"><span class="text-lg hover:text-yellow-500 text-white box"><strong>指令</strong></span></a></li>
+			<li class="nav-item"><a href="about"><span class="text-lg hover:text-yellow-500 text-white box"><strong>關於</strong></span></a></li>
+			<li class="nav-item"><a href="login"><span class="text-lg hover:text-yellow-500 text-white box"><strong>登入</strong></span></a></li>
 		</ul>
 	</nav>
 </header>
