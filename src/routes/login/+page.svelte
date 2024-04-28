@@ -1,119 +1,172 @@
 <!-- Login.svelte -->
-<script>
-	// 在這裡可以加入需要的腳本，如驗證表單等
+<script lang="ts">
+	let username = '';
+	let password = '';
+  
+	async function validateForm(): Promise<boolean> {
+	  if (username.trim() === '' || password.trim() === '') {
+		alert('請填寫完整的使用者名稱和密碼');
+		return false;
+	  }
+  
+	  if (password.length < 6) {
+		alert('密碼長度需至少為 6 個字符');
+		return false;
+	  }
+  
+	  // 可以根據需要添加更多的驗證規則，例如檢查使用者名稱格式等
+  
+	  console.log('表單驗證通過，執行表單提交操作');
+	  return true;
+	}
+  
+	async function submitForm(): Promise<void> {
+	  if (await validateForm()) {
+		try {
+		  const response = await fetch('https://your-api-url/login', {
+			method: 'POST',
+			headers: {
+			  'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ username, password })
+		  });
+  
+		  if (response.ok) {
+			// 登入成功，可以進行相應的操作，例如導航到下一個頁面
+			console.log('登入成功');
+			// 在這裡處理登入成功後的操作
+		  } else {
+			// 登入失敗，處理錯誤情況
+			console.error('登入失敗');
+		  }
+		} catch (error) {
+		  console.error('發生錯誤', error);
+		}
+	  }
+	}
   </script>
   
   <style>
-	/* CSS 部分，定義了登錄表單的樣式 */
-	.login-container {
+	/* 全局背景樣式 */
+	.bk {
 	  display: flex;
 	  justify-content: center;
 	  align-items: center;
-	  height: 100vh; /* 使容器占滿整個視窗高度 */
-	  background-image: url('login.png'); /* 設置背景圖片 */
-	  background-size: cover; /* 讓背景圖片覆蓋整個容器 */
-	  background-position: center; /* 將背景圖片置中 */
+	  height: 100vh;
+	  background-image: url('login.png');
+	  background-size: cover;
+	  background-position: center;
 	}
   
-	.login {
-	  width: 340px;
-	  background: #ffffffd5;
-	  padding: 47px;
-	  padding-bottom: 57px;
-	  color: #000000;
-	  border-radius: 17px;
-	  font-size: 1.3em;
-	  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	  animation: bounce 1s; /* 將動畫應用到 .login 元素 */
+	/* 登入框容器 */
+	.login-box {
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  width: 400px;
+	  padding: 40px;
+	  margin: 20px auto;
+	  transform: translate(-50%, -50%);
+	  background: rgba(0, 0, 0, 0.9);
+	  box-sizing: border-box;
+	  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+	  border-radius: 10px;
+	  color: #fff;
+	  text-align: center;
 	}
   
-	.login input[type="text"],
-	.login input[type="password"] {
-	  opacity: 1;
-	  display: block;
+	/* 標題樣式 */
+	.login-box p:first-child {
+	  margin: 0 0 30px;
+	  padding: 0;
+	  font-size: 1.5rem;
+	  font-weight: bold;
+	  letter-spacing: 1px;
+	}
+  
+	/* 輸入框容器 */
+	.login-box .user-box {
+	  position: relative;
+	  margin-bottom: 30px;
+	}
+  
+	/* 輸入框樣式 */
+	.login-box .user-box input {
+	  width: 100%;
+	  padding: 10px 0;
+	  font-size: 16px;
+	  color: #fff;
 	  border: none;
+	  border-bottom: 1px solid #fff;
 	  outline: none;
-	  width: 100%;
-	  padding: 13px 18px;
-	  margin: 20px 0 0 0;
-	  font-size: 0.8em;
-	  border-radius: 100px;
-	  background: #00000015;
+	  background: transparent;
+	}
+  
+	/* 標籤樣式 */
+	.login-box .user-box label {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  padding: 10px 0;
+	  font-size: 16px;
 	  color: #fff;
-	  animation: bounce1 1.3s; /* 將動畫應用到 input 元素 */
+	  pointer-events: none;
+	  transition: 0.5s;
 	}
   
-	.login input:focus {
-		animation: bounce 1s; /* 輸入框獲得焦點時應用動畫 */
-		-webkit-appearance: none; /* 禁用 WebKit 瀏覽器的默認樣式 */
-		appearance: none; /* 禁用其他瀏覽器的默認樣式 */
-	}
-
-  
-	.login input[type=submit]{
-	  border: 0;
-	  outline: 0;
-	  width: 100%;
-	  padding: 13px;
-	  margin: 40px 0 0 0;
-	  border-radius: 500px;
-	  font-weight: 600;
-	  animation: bounce2 1.6s; /* 將動畫應用到按鈕元素 */
+	/* 標籤在焦點狀態下的顯示 */
+	.login-box .user-box input:focus ~ label,
+	.login-box .user-box input:valid ~ label {
+	  top: -20px;
+	  left: 0;
+	  font-size: 12px;
 	}
   
-	.btn {
-	  background: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+	/* 登入按鈕樣式 */
+	.login-box form button {
+	  display: inline-block;
+	  padding: 10px 40px;
+	  font-weight: bold;
 	  color: #fff;
-	  padding: 16px !important;
-	}
-  
-	.btn:hover {
-	  background: linear-gradient(144deg, #1e1e1e , 20%,#1e1e1e 50%,#1e1e1e );
-	  color: rgb(255, 255, 255);
-	  padding: 16px !important;
+	  font-size: 16px;
+	  text-decoration: none;
+	  text-transform: uppercase;
+	  overflow: hidden;
+	  transition: 0.5s;
+	  letter-spacing: 3px;
+	  border: 1px solid #fff;
+	  border-radius: 5px;
 	  cursor: pointer;
-	  transition: all 0.4s ease;
+	  background: transparent;
 	}
   
-	@keyframes bounce {
-	  0% {
-		transform: translateY(-250px);
-		opacity: 0;
-	  }
+	/* 登入按鈕悬停時的效果 */
+	.login-box form button:hover {
+	  background: #fff;
+	  color: #272727;
 	}
   
-	@keyframes bounce1 {
-	  0% {
-		opacity: 0;
-	  }
-  
-	  40% {
-		transform: translateY(-100px);
-		opacity: 0;
-	  }
-	}
-  
-	@keyframes bounce2 {
-	  0% {
-		opacity: 0;
-	  }
-  
-	  70% {
-		transform: translateY(-20px);
-		opacity: 0;
-	  }
+	/* 登入表單底部的文字樣式 */
+	.login-box p:last-child {
+	  color: #aaa;
+	  font-size: 14px;
 	}
   </style>
   
-  <div class="login-container">
-	<div class="login">
-	  <h1>Login</h1>
-	  <form action="/login" method="post">
-		<input pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{13}\.[0-9]{13}\.[0-9]{13}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{24}|[0-9]{13})(\]?)$" placeholder="Email" id="email" name="email" type="text">
-		<input placeholder="Password" id="password" name="password" type="password">
-		<input value="Login" class="btn" type="submit">
+  <div class="bk">
+	<div class="login-box">
+	  <p>登入系統</p>
+	  <form on:submit|preventDefault={submitForm}>
+		<div class="user-box">
+		  <input type="text" id="username" bind:value={username} required>
+		  <label for="username">使用者名稱</label>
+		</div>
+		<div class="user-box">
+		  <input type="password" id="password" bind:value={password} required>
+		  <label for="password">密碼</label>
+		</div>
+		<button type="submit">登入</button>
 	  </form>
 	</div>
   </div>
-  
   

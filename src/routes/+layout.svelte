@@ -15,7 +15,7 @@
         <div class="container mx-auto flex justify-left items-center">
             <!-- 左側的子元素 -->
             <div>
-                <img src="LOGO.png" alt="PMC sever Logo">  <!-- 顯示 PMC sever 的 Logo -->
+                <img src="LOGO.png" alt="PMC sever Logo" class="border-radius:3px;">  <!-- 顯示 PMC sever 的 Logo -->
             </div>
             <!-- 右側的子元素 -->
             <div class="px-10">

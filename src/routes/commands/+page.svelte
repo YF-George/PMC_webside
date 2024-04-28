@@ -153,17 +153,11 @@
   }
 
   li {
-    margin-bottom: 1rem;
-    padding: 1rem;
     background-color: #1a202c;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
     cursor: pointer; /* 設置為可點擊 */
-  }
-
-  li:hover {
-    background-color: #1f2f48; /* 滑鼠懸停時的背景色 */
   }
 
   strong {
@@ -196,10 +190,11 @@
     {#each filteredCommands as command}
       <li>
         <button on:click={() => copyToClipboard(command.name)}>
-          <strong>{command.name}：</strong> {command.description}
+          <strong style="color: #ffcc00;">{command.name}</strong>: {command.description}
         </button>
       </li>
     {/each}
   </ul>
 </div>
+
 

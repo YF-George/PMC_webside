@@ -4,10 +4,11 @@
 	import github from '$lib/images/github.svg';
 </script>
 
-<header class="flex justify-between px-11 py-6">
-	<div class="text-2xl text-white">
-		<a href="https://kit.svelte.dev">養老伺服器</a>
-	</div>
+<header class="flex justify-between items-center px-11 py-6">
+    <div class="flex items-center">
+        <img src="LOGO.png" alt="PMC sever Logo" style="height: 40px; width: auto; margin-right: 10px; border-radius:3px;">
+        <a href="https://kit.svelte.dev" class="text-2xl text-white">養老伺服器</a>
+    </div>
 
 	<nav>
 		<ul class="flex list-none">

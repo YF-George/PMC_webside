@@ -1,3 +1,4 @@
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
 <style>
     .video-container {
         display: flex;
