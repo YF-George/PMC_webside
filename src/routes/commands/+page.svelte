@@ -1,9 +1,8 @@
 <!-- index.svelte -->
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-
-<script lang="ts">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+<script>
   let searchQuery = ''; // 搜尋關鍵字
-  let categoryFilter: string = ''; // 類別過濾器，初始為空表示顯示所有類別的指令
+  let categoryFilter = ''; // 類別過濾器，初始為空表示顯示所有類別的指令
 
   // 定義指令列表，每個指令包含 id、name、description 和 category 屬性
   const commands = [
@@ -32,32 +31,28 @@
   let filteredCommands = commands;
 
   // 搜尋和過濾功能
-  function handleSearch(event: Event) {
-    const target = event.target as HTMLInputElement;
-    if (target instanceof HTMLInputElement) {
-      searchQuery = target.value.trim().toLowerCase();
+  function handleSearch(event) {
+    searchQuery = event.target.value.trim().toLowerCase();
 
-      filteredCommands = commands.filter(command => {
-        let nameLower = command.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-        let descriptionLower = command.description.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    filteredCommands = commands.filter(command => {
+      let nameLower = command.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      let descriptionLower = command.description.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
-        return (
-          (categoryFilter === '' || command.category === categoryFilter) &&
-          (nameLower.includes(searchQuery) || descriptionLower.includes(searchQuery))
-        );
-      });
-    }
+      return (
+        (categoryFilter === '' || command.category === categoryFilter) &&
+        (nameLower.includes(searchQuery) || descriptionLower.includes(searchQuery))
+      );
+    });
   }
 
   // 切換類別過濾器
-  function handleCategoryFilter(category: string) {
+  function handleCategoryFilter(category) {
     categoryFilter = category;
-    const event = new Event('input');
-    handleSearch(event); // 觸發搜索過濾
+    handleSearch({ target: { value: searchQuery } }); // 觸發搜索過濾
   }
 
   // 定義一個函數，用來複製文字到剪貼板
-  function copyToClipboard(text: string) {
+  function copyToClipboard(text) {
     navigator.clipboard.writeText(text)
       .then(() => {
         alert('指令已成功複製到剪貼板！');
@@ -70,6 +65,15 @@
 </script>
 
 <style>
+  /* 整體樣式 */
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: #1a202c; /* 深藍色背景 */
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
   /* 標題樣式 */
   .banner {
@@ -93,51 +97,51 @@
     margin-bottom: 1rem;
   }
 
-  /* 搜索框樣式 */
+  /* 搜索框和下拉式選單樣式 */
   .search-container {
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     margin-bottom: 2rem;
+    justify-content: center; /* 水平置中 */
+    align-items: center; /* 垂直置中 */
   }
 
   input[type="text"] {
     padding: 1rem;
     font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    width: 60%; /* 調整寬度 */
+    max-width: 300px; /* 調整最大寬度 */
+    box-sizing: border-box;
+    color: #282828; /* 調整文字顏色 */
+    background-color: #f8f9fa; /* 調整搜索框背景色 */
+    margin-right: 1rem; /* 添加右邊間距 */
+  }
+
+  select {
+    padding: 1rem;
+    font-size: 1rem;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 80%;
-    max-width: 400px;
-    box-sizing: border-box;
-    color: #333; /* 調整文字顏色 */
-    background-color: #f8f9fa; /* 調整搜索框背景色 */
+    cursor: pointer;
+    background-color: #e7e7e7; /* 修改背景顏色 */
+    color: #000000;
+    transition: background-color 0.3s ease;
+    width: 40%; /* 調整寬度 */
+    max-width: 150px; /* 調整最大寬度 */
   }
 
   input[type="text"]:focus {
     outline: none;
-    border-color: #2b6cb0; /* 聚焦時顯示深藍色邊框 */
+    border-color: #b3b3b3; 
   }
 
-  /* 類別選擇按鈕樣式 */
-  .categories-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
+  select:hover {
+    background-color: #ffffff; /* 滑鼠懸停時的背景色 */
   }
 
-  button {
-    margin-right: 1rem;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: #2b6bb0;
-    color: #ffffff;
-    transition: background-color 0.3s ease;
-  }
-
-  button:hover {
-    background-color: #1e4e85; /* 滑鼠懸停時的背景色 */
-  }
 
   /* 指令列表樣式 */
   .commands-container {
@@ -153,6 +157,8 @@
   }
 
   li {
+    margin-bottom: 1rem;
+    padding: 1rem;
     background-color: #1a202c;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -160,8 +166,13 @@
     cursor: pointer; /* 設置為可點擊 */
   }
 
+  li:hover {
+    background-color: #1f2f48; /* 滑鼠懸停時的背景色 */
+  }
+
   strong {
     font-weight: bold;
+    color: #2b6cb0;
   }
 </style>
 
@@ -169,32 +180,25 @@
   <h1 class="title">指令大全</h1>
   <p class="description">尋找各種指令</p>
 
-  <!-- 搜索框 -->
+  <!-- 搜索框和下拉式選單 -->
   <div class="search-container">
     <input type="text" placeholder="輸入指令關鍵字" bind:value={searchQuery} on:input={handleSearch} />
-  </div>
-
-  <!-- 類別選擇按鈕 -->
-  <div class="categories-container">
-    <button on:click={() => handleCategoryFilter('')}>所有類別</button>
-    <button on:click={() => handleCategoryFilter('領地管理')}>領地管理</button>
-    <button on:click={() => handleCategoryFilter('聊天功能')}>聊天功能</button>
-    <button on:click={() => handleCategoryFilter('顯示功能')}>顯示功能</button>
-    <!-- 可以根據需要添加其他類別按鈕 -->
+    <select on:change={(event) => handleCategoryFilter(event.target.value)}>
+      <option value="">所有類別</option>
+      <option value="領地管理">領地管理</option>
+      <option value="聊天功能">聊天功能</option>
+      <option value="顯示功能">顯示功能</option>
+    </select>
   </div>
 </div>
 
 <div class="commands-container">
-  <h2>常用指令列表：</h2>
+  <h2 class="text-3xl">常用指令列表：</h2>
   <ul>
     {#each filteredCommands as command}
-      <li>
-        <button on:click={() => copyToClipboard(command.name)}>
-          <strong style="color: #ffcc00;">{command.name}</strong>: {command.description}
-        </button>
+      <li on:click={() => copyToClipboard(command.name)}>
+        <strong>{command.name}：</strong> {command.description}
       </li>
     {/each}
   </ul>
 </div>
-
-
