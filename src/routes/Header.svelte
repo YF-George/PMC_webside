@@ -1,12 +1,12 @@
 <script>
+	import logo from '$lib/images/logo.png';
 	import { page } from '$app/stores';
-	import logo from '$lib/images/svelte-logo.svg';
 	import github from '$lib/images/github.svg';
 </script>
 
 <header class="flex justify-between items-center px-11 py-6">
     <div class="flex items-center">
-        <img src="LOGO.png" alt="PMC sever Logo" style="height: 40px; width: auto; margin-right: 10px; border-radius:3px;">
+		<img alt="The project logo" src={logo} class="w-10 h-10 mr-4 " />
         <a href="https://kit.svelte.dev" class="text-2xl text-white">養老伺服器</a>
     </div>
 

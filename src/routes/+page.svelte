@@ -1,5 +1,11 @@
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
-
+<script>
+    import logo from '$lib/images/logo.png';
+    import main_section from '$lib/images/main-section.png';
+    import second_section from '$lib/images/second-section.png';
+    import third_section from '$lib/images/third-section.png';
+    import fourth_section from '$lib/images/fourth-section.png';
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet"> 
 <div class="sidebar">
     <a href="#section-1">頂端</a>
     <a href="#section-2">介紹</a>
@@ -7,7 +13,7 @@
     <a href="#section-4">團隊</a>
 </div>
 
-<section id="section-1" class="text-white">
+<section id="section-1" class="text-white" style="background: url({main_section}); width: 100%;background-attachment: fixed;background-size: cover;">
     <main class="flex justify-center items-center h-5/6">
         <div class="border border-4 border-white p-5">
             <h1>養老伺服器</h1>
@@ -20,7 +26,7 @@
     </div>
 </section>
 
-<section id="section-2" class="py-10 bg-gray-900">
+<section id="section-2" class="py-10 bg-gray-900" style="background: url({second_section}); width: 100%;background-attachment: fixed;background-size: cover;">
     <div class="container mx-auto text-center ">
         <h2 class="text-5xl font-bold text-yellow-400 py-10">養老伺服器介紹</h2>
         <p class="text-2xl mb-5 py-5">
@@ -39,7 +45,7 @@
     </div>
 </section>
 
-<section id="section-3" class="py-10 bg-gray-800">
+<section id="section-3" class="py-10 bg-gray-800" style="background: url({third_section}); width: 100%;background-attachment: fixed;background-size: cover;">
     <div class="container mx-auto text-center li-5">
         <h2 class="text-5xl font-bold text-yellow-400 py-10">加入我們的冒險之旅吧</h2>
         <div class="text-2xl py-5 bk">
@@ -50,7 +56,7 @@
     </div>
 </section>
 
-<section id="section-4" class="bg-gray-900">
+<section id="section-4" class="bg-gray-900" style="background: url({fourth_section}); width: 100%;background-attachment: fixed;background-size: cover;">
     <div class="container mx-auto text-center li-5">
         <h2 class="text-5xl font-bold text-yellow-400 py-10">團隊</h2>
         <div class="text-2xl py-5 bk">
