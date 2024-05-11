@@ -4,7 +4,7 @@ const { exec } = require('child_process');
 const port = process.env.PORT || 3000;
 
 // Command to execute
-const command = `npm run preview -- --port ${port} --host 0.0.0.0`;
+const command = `npx vite preview --port ${port} --host 0.0.0.0`;
 
 // Execute the command
 console.log(`Running command: ${command}`);
