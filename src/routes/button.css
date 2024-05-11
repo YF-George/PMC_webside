@@ -1,0 +1,73 @@
+/* 方塊樣式 */
+.box {
+    line-height: 35px; /* 高度自適應 */
+    padding: 7px 20px;
+    transition: .5s linear; /* 過渡效果 */
+    position: relative; /* 相對定位 */
+    display: block; /* 块級元素 */
+    overflow: hidden; /* 溢出隱藏 */
+    text-align: center; /* 文字居中 */
+    background: transparent; /* 背景透明 */
+    text-transform: uppercase; /* 文字轉換為大寫 */
+    
+  }
+  
+  /* 方塊樣式的偽元素 */
+  .box:before {
+    position: absolute; /* 絕對定位 */
+    content: ''; /* 生成內容 */
+    left: 0; /* 位置 */
+    bottom: 0; /* 位置 */
+    height: 4px; /* 高度 */
+    width: 100%; /* 寬度 */
+    border-bottom: 4px solid transparent; /* 底邊框 */
+    border-left: 4px solid transparent; /* 左邊框 */
+    box-sizing: border-box; /* 盒模型 */
+    transform: translateX(100%); /* X軸移動 */
+  }
+  
+  .box:after {
+    position: absolute; /* 絕對定位 */
+    content: ''; /* 生成內容 */
+    top: 0; /* 位置 */
+    left: 0; /* 位置 */
+    width: 100%; /* 寬度 */
+    height: 4px; /* 高度 */
+    border-top: 4px solid transparent; /* 上邊框 */
+    border-right: 4px solid transparent; /* 右邊框 */
+    box-sizing: border-box; /* 盒模型 */
+    transform: translateX(-100%); /* X軸移動 */
+  }
+  
+  /* 方塊懸停樣式 */
+  .box:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* 陰影 */
+  }
+  
+  /* 方塊懸停時偽元素樣式 */
+  .box:hover:before {
+    border-color: #ffffff; /* 邊框顏色 */
+    height: 100%; /* 高度 */
+    transform: translateX(0); /* X軸移動 */
+    transition: .2s transform linear, .2s height linear .2s; /* 過渡效果 */
+  }
+  
+  .box:hover:after {
+    border-color: #ffffff; /* 邊框顏色 */
+    height: 100%; /* 高度 */
+    transform: translateX(0); /* X軸移動 */
+    transition: .2s transform linear, .2s height linear .2s; /* 過渡效果 */
+  }
+  
+  /* 按鈕樣式 */
+  button {
+    color: rgb(255, 255, 255); /* 文字顏色 */
+    text-decoration: none; /* 文字無下劃線 */
+    cursor: pointer; /* 游標 */
+    outline: none; /* 外邊框 */
+    border: none; /* 邊框 */
+    background: transparent; /* 背景透明 */
+    margin: 4px;
+    margin-top: 15px;
+    font-size: 16px;
+  }
