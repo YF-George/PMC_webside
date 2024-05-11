@@ -152,21 +152,17 @@ footer .container {
 
 #section-1 {
     height: 100vh;
-    background-image: url('main-section.png');
 }
 
 #section-2 {
-    background-image: url('second-section.png');
     height: 80vh;
 }
 
 #section-3 {
-    background-image: url('third-section.png');
     height: 80vh;
 }
 
 #section-4 {
-    background-image: url('fourth-section.png');
     height: 80vh;
 }
 

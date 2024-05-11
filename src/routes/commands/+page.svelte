@@ -1,6 +1,7 @@
-<!-- index.svelte -->
+
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
 <script>
+  import search from '$lib/images/search.png';
   let searchQuery = ''; // 搜尋關鍵字
   let categoryFilter = ''; // 類別過濾器，初始為空表示顯示所有類別的指令
 
@@ -77,7 +78,6 @@
 
   /* 標題樣式 */
   .banner {
-    background-image: url('search.png');
     color: #ffffff;
     padding: 10vh 2rem;
     text-align: center;
@@ -176,7 +176,7 @@
   }
 </style>
 
-<div class="banner">
+<div class="banner " style="background: url({search}); background-position: center;">
   <h1 class="title">指令大全</h1>
   <p class="description">尋找各種指令</p>
 

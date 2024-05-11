@@ -1,5 +1,6 @@
 <!-- Login.svelte -->
 <script lang="ts">
+	import login from '$lib/images/login.png';
 	let username = '';
 	let password = '';
   
@@ -53,7 +54,6 @@
 	  justify-content: center;
 	  align-items: center;
 	  height: 100vh;
-	  background-image: url('login.png');
 	  background-size: cover;
 	  background-position: center;
 	}
@@ -153,7 +153,7 @@
 	}
   </style>
   
-  <div class="bk">
+  <div class="bk" style="background: url({login}); width: 100%; background-attachment: fixed;background-size: cover;">
 	<div class="login-box">
 	  <p>登入系統</p>
 	  <form on:submit|preventDefault={submitForm}>
