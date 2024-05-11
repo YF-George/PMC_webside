@@ -1,0 +1,14 @@
+{
+	"/": [
+		"src/routes/+page.js"
+	],
+	"/about": [
+		"src/routes/about/+page.js"
+	],
+	"/commands": [
+		"src/routes/commands/+page.js"
+	],
+	"/login": [
+		"src/routes/login/+page.js"
+	]
+}
