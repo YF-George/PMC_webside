@@ -1,5 +1,4 @@
 <script>
-    import logo from '$lib/images/logo.png';
     import main_section from '$lib/images/main-section.png';
     import second_section from '$lib/images/second-section.png';
     import third_section from '$lib/images/third-section.png';

@@ -1,7 +1,5 @@
 <script>
 	import logo from '$lib/images/logo.png';
-	import { page } from '$app/stores';
-	import github from '$lib/images/github.svg';
 </script>
 
 <header class="flex justify-between items-center px-11 py-6">
