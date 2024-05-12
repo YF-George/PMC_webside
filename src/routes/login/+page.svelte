@@ -1,7 +1,5 @@
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
 <!-- Login.svelte -->
 <script lang="ts">
-	import './login.css';
 	import login from '$lib/images/login.png';
 	let username = '';
 	let password = '';
@@ -49,8 +47,113 @@
 	}
   </script>
   
+  <style>
+	/* 全局背景樣式 */
+	.bk {
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  height: 100vh;
+	  background-size: cover;
+	  background-position: center;
+	}
   
-  <div class="bk" style="background: url({login}); width: 100%; background-attachment: fixed;background-size: cover; border-radius: 0px;">
+	/* 登入框容器 */
+	.login-box {
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  width: 400px;
+	  padding: 40px;
+	  margin: 20px auto;
+	  transform: translate(-50%, -50%);
+	  background: rgba(0, 0, 0, 0.9);
+	  box-sizing: border-box;
+	  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+	  border-radius: 10px;
+	  color: #fff;
+	  text-align: center;
+	}
+  
+	/* 標題樣式 */
+	.login-box p:first-child {
+	  margin: 0 0 30px;
+	  padding: 0;
+	  font-size: 1.5rem;
+	  font-weight: bold;
+	  letter-spacing: 1px;
+	}
+  
+	/* 輸入框容器 */
+	.login-box .user-box {
+	  position: relative;
+	  margin-bottom: 30px;
+	}
+  
+	/* 輸入框樣式 */
+	.login-box .user-box input {
+	  width: 100%;
+	  padding: 10px 0;
+	  font-size: 16px;
+	  color: #fff;
+	  border: none;
+	  border-bottom: 1px solid #fff;
+	  outline: none;
+	  background: transparent;
+	}
+  
+	/* 標籤樣式 */
+	.login-box .user-box label {
+	  position: absolute;
+	  top: 0;
+	  left: 0;
+	  padding: 10px 0;
+	  font-size: 16px;
+	  color: #fff;
+	  pointer-events: none;
+	  transition: 0.5s;
+	}
+  
+	/* 標籤在焦點狀態下的顯示 */
+	.login-box .user-box input:focus ~ label,
+	.login-box .user-box input:valid ~ label {
+	  top: -20px;
+	  left: 0;
+	  font-size: 12px;
+	}
+  
+	/* 登入按鈕樣式 */
+	.login-box form button {
+	  display: inline-block;
+	  padding: 10px 40px;
+	  font-weight: bold;
+	  color: #fff;
+	  font-size: 16px;
+	  text-decoration: none;
+	  text-transform: uppercase;
+	  overflow: hidden;
+	  transition: 0.5s;
+	  letter-spacing: 3px;
+	  border: 1px solid #fff;
+	  border-radius: 5px;
+	  cursor: pointer;
+	  background: transparent;
+	}
+  
+	/* 登入按鈕悬停時的效果 */
+	.login-box form button:hover {
+	  background: #fff;
+	  color: #272727;
+	}
+  
+	/* 登入表單底部的文字樣式 */
+	.login-box p:last-child {
+	  color: #aaa;
+	  font-size: 14px;
+	}
+  </style>
+  
+  <div class="bk" style="background: url({login}); width: 100%; background-attachment: fixed;background-size: cover;">
 	<div class="login-box">
 	  <p>登入系統</p>
 	  <form on:submit|preventDefault={submitForm}>
