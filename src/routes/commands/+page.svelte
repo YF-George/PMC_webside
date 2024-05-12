@@ -56,18 +56,23 @@
 <div class="banner " style="background: url({search}); background-position: center;">
   <h1 class="title">指令大全</h1>
   <p class="description">尋找各種指令</p>
-
   <!-- 搜索框和下拉式選單 -->
   <div class="search-container">
     <input type="text" placeholder="輸入指令關鍵字" bind:value={searchQuery} on:input={handleSearch} />
     <select on:change={(event) => handleCategoryFilter(event.target.value)}>
       <option value="">所有類別</option>
       <option value="領地管理">領地管理</option>
-      <option value="聊天功能">聊天功能</option>
-      <option value="顯示功能">顯示功能</option>
+      <option value="系統指令">系統指令</option>
+      <option value="傳送指令">傳送指令</option>
+      <option value="商城指令">商城指令</option>
+      <option value="經濟指令">經濟指令</option>
+      <option value="技能指令">技能指令</option>
+      <option value="稱號指令">稱號指令</option>
+      <option value="其他指令">其他指令</option>
     </select>
   </div>
 </div>
+
 
 <div class="commands-container" >
   <ul style="max-height: 600px; overflow-y: auto;">
