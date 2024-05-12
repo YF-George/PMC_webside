@@ -6,7 +6,6 @@
 /* 全局樣式 */
 
 /* 歸零部分 */
-/* 重置一些元素的 margin 為 0，以避免預設的間距 */
 blockquote,
 dl,
 dd,
@@ -24,7 +23,6 @@ pre {
 }
 
 /* 標題樣式 */
-/* 保留標題元素的繼承字體大小和粗細 */
 h1,
 h2,
 h3,
@@ -37,34 +35,20 @@ h6 {
 
 /* HTML 元素樣式 */
 html {
-    /* 平滑滾動行為 */
     scroll-behavior: smooth;
-    /* 重置 HTML 元素的 margin 和 padding */
     margin: 0;
     padding: 0;
-    /* 使用 'Noto Sans TC' 字體，或者使用 sans-serif 字體作為後備 */
     font-family: 'Noto Sans TC', sans-serif;
-    /* 背景色 */
     background-color: #1a202c;
-    /* 文字顏色 */
     color: #fff;
-    /* 其他基本屬性 */
-    position: static;
-    width: auto;
-    height: auto;
-    overflow: visible;
-    clip: auto;
-    white-space: normal;
 }
 
 /* 共用元素設置 */
-/* 移除超連結的底線 */
 a {
     text-decoration: none;
 }
 
 /* 頁首 */
-/* 設置頁首樣式，使用 flex 佈局 */
 header {
     width: 100%;
     display: flex;
@@ -72,7 +56,6 @@ header {
 }
 
 /* 標題 */
-/* 設置標題的字體大小、粗細和居中對齊 */
 h1 {
     font-size: 4rem;
     font-weight: bold;
@@ -80,13 +63,7 @@ h1 {
     padding: 10px 30px;
 }
 
-/* 文字顏色 */
-.text-white {
-    color: white;
-}
-
 /* 上下內邊距 */
-/* 定義常用的 padding 上下內邊距 */
 .py-10 {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -103,32 +80,27 @@ h1 {
 }
 
 /* 頁尾 */
-/* 設置頁尾的字體大小和最大寬度 */
 footer {
     height: 150px;
     font-size: 0.9rem;
     margin: 0 auto;
 }
 
-/* 頁尾容器 */
 footer .container {
     margin: 0 auto;
 }
 
 /* Logo */
-/* 定義 Logo 的字體粗細和字體大小 */
 .logo {
     font-weight: bold;
     font-size: 1.5em;
 }
 
 /* 浮動元素動畫 */
-/* 定義浮動元素的上下浮動動畫效果 */
 .float-element {
     animation: floatUpDown 3s ease-in-out infinite;
 }
 
-/* 浮動動畫定義 */
 @keyframes floatUpDown {
     0%, 100% {
         transform: translateY(0);
@@ -139,7 +111,6 @@ footer .container {
 }
 
 /* 頁面部分背景圖片設置 */
-/* 設置特定區域的背景圖片和高度 */
 #section-1,
 #section-2,
 #section-3,
@@ -153,20 +124,13 @@ footer .container {
     height: 100vh;
 }
 
-#section-2 {
-    height: 80vh;
-}
-
-#section-3 {
-    height: 80vh;
-}
-
+#section-2,
+#section-3,
 #section-4 {
     height: 80vh;
 }
 
 /* 共用 section 元素設置 */
-/* 定義 section 元素的排版和佈局 */
 section {
     display: flex;
     flex-direction: column;
@@ -176,18 +140,15 @@ section {
 }
 
 /* 歡迎區塊設置 */
-/* 定義歡迎區塊的排版和樣式 */
 .welcome {
     display: block;
     position: relative;
     width: 100%;
     height: 0;
-    /* 設置歡迎區塊的高度，根據圖片寬高比計算 padding */
     padding: 0 0 calc(100% * 495 / 2048) 0;
 }
 
 /* 歡迎區塊中的圖片設置 */
-/* 定義歡迎區塊中圖片的排版和樣式 */
 .welcome img {
     position: absolute;
     width: 100%;
@@ -203,66 +164,62 @@ section {
 
 /* 圖片和影片的最大寬度 */
 img, video {
-    border-radius:4%;
+    border-radius: 4%;
     max-width: 100%;
     height: 150px;
 }
 
 /* 側邊欄 */
-/* 定義側邊欄的排版和樣式 */
 .sidebar {
     position: fixed;
-    top: 50%; /* 垂直居中 */
-    right: 0; /* 右側定位 */
+    top: 50%;
+    right: 0;
     transform: translateY(-50%);
-    background-color: #1a202c7f ; /* 深色背景 */
+    background-color: #1a202c7f;
     color: #fff;
     padding: 20px;
-    width: 100px; /* 調整寬度為更窄的尺寸 */
+    width: 100px;
     text-align: center;
-    z-index: 1000; /* 確保側邊欄在最上層 */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 柔和的陰影效果 */
-    border-radius: 10px; /* 圓角 */
-    font-family: 'Noto Sans TC', sans-serif; /* 使用自定義字體 */
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-family: 'Noto Sans TC', sans-serif;
 }
 
 /* 側邊欄標題 */
-/* 定義側邊欄標題的字體大小和粗細 */
 .sidebar h3 {
-    font-size: 20px; /* 調整標題字體大小 */
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
 /* 側邊欄連結樣式 */
-/* 定義側邊欄連結的樣式和懸停效果 */
 .sidebar a {
     display: block;
-    color: #cbd5e0; /* 淺色文字 */
+    color: #cbd5e0;
     text-decoration: none;
-    margin-bottom: 12px; /* 增加間距 */
+    margin-bottom: 12px;
     padding: 12px 0;
-    border-radius: 10px; /* 圓角 */
-    transition: background-color 0.3s ease, color 0.3s ease; /* 添加過渡效果 */
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* 滑鼠懸停時的樣式 */
 .sidebar a:hover {
-    border-radius: 10px; /* 圓角 */
-    background-color: #6b6c6e ; /* 深色背景 */
-    color: #fff; /* 白色文字 */
+    border-radius: 10px;
+    background-color: #6b6c6e;
+    color: #fff;
 }
 
 /* 背景色塊 */
 .bk {
     line-height: 3rem;
-    background-color: #b6b6b62e; /* 背景色 */
-    border-radius: 10px; /* 圓角 */
+    background-color: #b6b6b62e;
+    border-radius: 10px;
 }
 
 /* 分隔線 */
 .divider {
-    border-top: 1px solid #ccc; /* 添加分隔线 */
+    border-top: 1px solid #ccc;
     margin: 20px 0;
 }
-
