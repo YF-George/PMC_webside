@@ -14,7 +14,7 @@
 
 <section id="section-1" class="text-white" style="background: url({main_section}); width: 100%;background-attachment: fixed;background-size: cover;">
     <main class="flex justify-center items-center h-5/6">
-        <div class="border border-4 border-white p-5">
+        <div class="border-4 border-white p-5">
             <h1>養老伺服器</h1>
         </div>
     </main>
