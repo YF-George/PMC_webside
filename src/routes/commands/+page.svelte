@@ -1,6 +1,8 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
 <script>
+// @ts-nocheck
+
   import search from '$lib/images/search.png';
   let searchQuery = ''; // 搜尋關鍵字
   let categoryFilter = ''; // 類別過濾器，初始為空表示顯示所有類別的指令
@@ -32,6 +34,9 @@
   let filteredCommands = commands;
 
   // 搜尋和過濾功能
+  /**
+   * @param {{ target: any; }} event
+   */
   function handleSearch(event) {
     searchQuery = event.target.value.trim().toLowerCase();
 
@@ -47,12 +52,18 @@
   }
 
   // 切換類別過濾器
+  /**
+   * @param {string} category
+   */
   function handleCategoryFilter(category) {
     categoryFilter = category;
     handleSearch({ target: { value: searchQuery } }); // 觸發搜索過濾
   }
 
   // 定義一個函數，用來複製文字到剪貼板
+  /**
+   * @param {string} text
+   */
   function copyToClipboard(text) {
     navigator.clipboard.writeText(text)
       .then(() => {
@@ -66,15 +77,6 @@
 </script>
 
 <style>
-  /* 整體樣式 */
-  body {
-    font-family: 'Noto Sans TC', sans-serif;
-    background-color: #1a202c; /* 深藍色背景 */
-    color: #ffffff;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
 
   /* 標題樣式 */
   .banner {
@@ -92,7 +94,7 @@
     margin-bottom: 1rem;
   }
 
-  .description {
+    .description {
     font-size: 1.5rem;
     margin-bottom: 1rem;
   }
@@ -196,8 +198,10 @@
   <h2 class="text-3xl">常用指令列表：</h2>
   <ul>
     {#each filteredCommands as command}
-      <li on:click={() => copyToClipboard(command.name)}>
-        <strong>{command.name}：</strong> {command.description}
+      <li>
+        <button on:click={() => copyToClipboard(command.name)} class="command-item">
+          <strong>{command.name}：</strong> {command.description}
+        </button>
       </li>
     {/each}
   </ul>

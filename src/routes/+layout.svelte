@@ -12,11 +12,11 @@
         <slot />  <!-- 插槽，用於插入其他內容 -->
     </main>
 
-    <footer class="text-white py-4 h-20">
-        <div class="container mx-auto flex justify-left items-center">
+    <footer class="text-white py-4 ">
+        <div class="container mx-auto flex justify-left items-center pt-5">
             <!-- 左側的子元素 -->
             <div>
-                <img alt="The project logo" src={logo} class="w-20 h-20 mr-4 " />
+                <img alt="The project logo" src={logo} class="w-20 h-20 mr-4" />
             </div>
             <!-- 右側的子元素 -->
             <div class="px-10">

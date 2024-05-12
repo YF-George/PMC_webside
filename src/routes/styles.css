@@ -105,14 +105,13 @@ h1 {
 /* 頁尾 */
 /* 設置頁尾的字體大小和最大寬度 */
 footer {
+    height: 150px;
     font-size: 0.9rem;
-    max-width: 1200px;
     margin: 0 auto;
 }
 
 /* 頁尾容器 */
 footer .container {
-    max-width: 1200px;
     margin: 0 auto;
 }
 
