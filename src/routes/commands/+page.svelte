@@ -38,16 +38,15 @@
    * @param {{ target: any; }} event
    */
   function handleSearch(event) {
-    searchQuery = event.target.value.trim().toLowerCase();
-
-    filteredCommands = commands.filter(command => {
-      let nameLower = command.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-      let descriptionLower = command.description.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
-      return (
-        (categoryFilter === '' || command.category === categoryFilter) &&
-        (nameLower.includes(searchQuery) || descriptionLower.includes(searchQuery))
-      );
+    searchQuery = event.target.value.toLowerCase();
+    filteredCommands = commands.filter((command) => {
+        if (searchQuery === '' && categoryFilter === '') {
+          return true; // return all when searchQuery is empty
+        }
+        let fileredByQuery = command.name.toLowerCase().includes(searchQuery) || command.description.toLowerCase().includes(searchQuery);
+        let fileredByCategory = categoryFilter === '' || command.category === categoryFilter;
+        return fileredByQuery & fileredByCategory;
+        //return command.name.toLowerCase().includes(searchQuery) || command.description.toLowerCase().includes(searchQuery);
     });
   }
 
