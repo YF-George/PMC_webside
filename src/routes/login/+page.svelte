@@ -1,4 +1,4 @@
-<!-- Login.svelte -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet"> 
 <script lang="ts">
 	import login from '$lib/images/login.png';
 	let username = '';

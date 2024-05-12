@@ -4,7 +4,7 @@
     import './styles.css';  // 引入自定義的 CSS 樣式文件
     import './button.css';  // 引入按鈕樣式的 CSS 文件
 </script>
-
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet"> 
 <div class="app">
     <Header />  <!-- 使用 Header 組件 -->
 
