@@ -1,7 +1,7 @@
 <script>
     // 導入需要的組件和圖像
-    import Sidebar from '$lib/components/Sidebar.svelte';
-    import ContentBlock from '$lib/components/ContentBlock.svelte';
+    import Sidebar from '../lib/components/Sidebar.svelte';
+    import ContentBlock from '../lib/components/ContentBlock.svelte';
     
     // 導入圖像，注意變數名稱不要和組件名稱混淆
     import mainSection from '$lib/images/main-section.png';
