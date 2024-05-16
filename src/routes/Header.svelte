@@ -1,3 +1,4 @@
+<!-- src\routes\Header.svelte -->
 <script>
 	import logo from '$lib/images/logo.png';
 </script>

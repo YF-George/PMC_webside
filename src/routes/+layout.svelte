@@ -1,3 +1,4 @@
+<!-- src\routes\+layout.svelte -->
 <script>
     import logo from '$lib/images/logo.png';
     import Header from './Header.svelte';  // 引入 Header 組件

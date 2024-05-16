@@ -1,41 +1,29 @@
-/* Tailwind CSS 基本設置 */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* 全局樣式 */
+:root {
+    --primary-bg-color: #1a202c;
+    --primary-text-color: #fff;
+    --font-family: 'Noto Sans TC', sans-serif;
+}
+
 html {
     scroll-behavior: smooth;
-    font-family: 'Noto Sans TC', sans-serif;
-    background-color: #1a202c;
-    color: #fff;
+    font-family: var(--font-family);
+    background-color: var(--primary-bg-color);
+    color: var(--primary-text-color);
 }
 
 /* 全局重置 */
-blockquote,
-dl,
-dd,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-hr,
-figure,
-p,
-pre {
+blockquote, dl, dd, h1, h2, h3, h4, h5, h6, hr, figure, p, pre {
     margin: 0;
     padding: 0;
 }
 
 /* 標題字體設置 */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     font-size: inherit;
     font-weight: inherit;
 }
@@ -43,26 +31,19 @@ h6 {
 /* 共用連結設置 */
 a {
     text-decoration: none;
+    color: inherit; /* 確保連結繼承父元素顏色 */
 }
 
 /* 頁尾設置 */
 footer {
-    height: 150px;
-    font-size: 0.9rem;
-    margin: 0 auto;
+    @apply h-36 text-sm mx-auto;
 }
 
 footer .container {
-    margin: 0 auto;
+    @apply mx-auto;
 }
 
 /* 頁面部分背景圖片設置 */
-#section-1,
-#section-2,
-#section-3,
-#section-4 {
-    height: 100vh;
-    width: 100%;
-    background-attachment: fixed;
-    background-size: cover;
+#section-1, #section-2, #section-3, #section-4 {
+    @apply h-screen w-full bg-fixed bg-cover;
 }
