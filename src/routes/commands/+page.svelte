@@ -68,6 +68,7 @@
       <option value="經濟指令">經濟指令</option>
       <option value="技能指令">技能指令</option>
       <option value="稱號指令">稱號指令</option>
+      <option value="公會指令">公會指令</option>
       <option value="其他指令">其他指令</option>
     </select>
   </div>
